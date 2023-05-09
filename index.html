@@ -7,28 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Super Fam | Coming Soon!</title>
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/png" href="./logo.png" />
-    <script src="https://cdn.tailwindcss.com/3.1.4"></script>
+    <link rel="icon" type="image/png" href="./src/logo.png" />
+    <link href="/dist/output.css" rel="stylesheet">
 </head>
 
 <body>
 
 <div class="relative h-screen w-full flex items-center justify-center bg-cover bg-center text-center px-5"
-    style="background-image:url(bg.jpg);">
+    style="background-image:url(./src/bg.jpg);">
     <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
 
     <div class="z-50 flex flex-col justify-center text-white w-full h-screen">
-        <span class="text-bold"><img src="./logo.png" alt="" style="max-width: 120px;" class="mx-auto mb-3"></span>
+        <span class="text-bold"><img src="./src/logo.png" alt="" style="max-width: 120px;" class="mx-auto mb-3"></span>
         <h1 class="text-5xl mt-4 mb-2">We are <b>Almost</b> there!</h1>
         <p>Stay tuned for something amazing!!!</p>
 
         <div class="sm:mt-10">
-            <form class="w-full max-w-xl mx-auto" action="" id="form-main" method="post">
+            <form class="w-full max-w-xl mx-auto" action="https://app.us9.list-manage.com/subscribe/post?u=45688f89dd542e86768639360&amp;id=e309800993&amp;f_id=005032e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                 <div class="flex items-center border-b border-blue-500 py-2">
-                    <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" name="Email" placeholder="username@email.ext" aria-label="Your Email">
-                    <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit" id="submit-form">Subscribe</button>
+                    <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="username@email.ext" required>
+                    <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded m-0" name="subscribe" id="mc-embedded-subscribe">Subscribe</button>
                 </div>
             </form>
+            <div id="mce-responses" class="clear foot py-2">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div> 
         </div>
 
         <div class="mt-6 flex text-white mx-auto">
@@ -105,24 +109,17 @@
     </div>
 
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <script>
-    var $form = $('form#form-main'),
-    url = 'https://script.google.com/macros/s/AKfycbyJg1DsrUg--LXyMQn3KMpEHJxgKxQJUkxm3jXmDmFrmXSsSzABamhBPjMouWlqeg4c/exec'
-
-    $('#submit-form').on('click', function(e) {
-        e.preventDefault();
-        var jqxhr = $.ajax({
-            url: url,
-            method: "GET",
-            dataType: "json",
-            data: $form.serialize()
-        }).success(
-            alert('Form Submitted')
-        );
-    })
+    var mc1Submitted = false;
+    var signUpForm = document.getElementById('mc-embedded-subscribe-form');
+    signUpForm.addEventListener('reset', function (event) {
+        var signUpForm2 = document.getElementById('mc-embedded-subscribe-form');
+	signUpForm2.style.display = "none";
+        var signUpForm = document.getElementById('mce-success-response');
+        document.getElementById('mc_embed_signup').append(signUpForm)
+    });
 </script>
-
 </body>
 
 </html>
