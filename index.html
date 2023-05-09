@@ -23,10 +23,10 @@
         <p>Stay tuned for something amazing!!!</p>
 
         <div class="sm:mt-10">
-            <form class="w-full max-w-xl mx-auto">
+            <form class="w-full max-w-xl mx-auto" action="" id="form-main" method="post">
                 <div class="flex items-center border-b border-blue-500 py-2">
-                    <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="username@email.ext" aria-label="Full name">
-                    <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">Subscribe</button>
+                    <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" name="Email" placeholder="username@email.ext" aria-label="Your Email">
+                    <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit" id="submit-form">Subscribe</button>
                 </div>
             </form>
         </div>
@@ -105,6 +105,23 @@
     </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script>
+    var $form = $('form#form-main'),
+    url = 'https://script.google.com/macros/s/AKfycbyJg1DsrUg--LXyMQn3KMpEHJxgKxQJUkxm3jXmDmFrmXSsSzABamhBPjMouWlqeg4c/exec'
+
+    $('#submit-form').on('click', function(e) {
+        e.preventDefault();
+        var jqxhr = $.ajax({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            data: $form.serialize()
+        }).success(
+            alert('Form Submitted')
+        );
+    })
+</script>
 
 </body>
 
