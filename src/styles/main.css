@@ -51,6 +51,9 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+.open__beta-access {
+    cursor: pointer;
+}
 /* @import url(./swiper.css); */
 :root {
     --blue: #00A2FE;
