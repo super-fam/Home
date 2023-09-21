@@ -472,29 +472,30 @@
             <div class="beta__form-inputs w-50">
                 <h2><span>Join</span> our beta program</h2>
                 <p>We will reach out to you for early access. Completely free. All we ask for is your feedback</p>
-                <form name="mc-embedded-subscribe-form" action="https://app.us9.list-manage.com/subscribe/post?u=45688f89dd542e86768639360&amp;id=e309800993&amp;f_id=005032e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form">
+                <form name="mc-embedded-subscribe-form" action="https://app.us9.list-manage.com/subscribe/post?u=45688f89dd542e86768639360&amp;id=e309800993&amp;f_id=005032e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                target="_blank">
                     <div class="beta__form-item textbox">
-                        <label>Name</label>
-                        <input type="text" placeholder="Tony Stark" name="name">
+                        <label for="mce-NAME">Name</label>
+                        <input type="text" placeholder="Tony Stark" id="mce-NAME" name="NAME">
                     </div>
                     <div class="beta__form-item textbox">
-                        <label>Email address</label>
-                        <input type="email" placeholder="email@gmail.com" name="email" name="EMAIL" id="mce-EMAIL">
+                        <label for="mce-EMAIL">Email address</label>
+                        <input type="email" placeholder="email@gmail.com" name="EMAIL" id="mce-EMAIL">
                     </div>
                     <div class="beta__form-item textbox">
-                        <label>Mobile number</label>
+                        <label for="mce-PHONE">Mobile number</label>
                         <div class="textbox__countrycode">
                             <img src="./src/country__code.svg" alt="">
-                            <input type="number" placeholder="Mobile number" name="mobile">
+                            <input type="number" placeholder="Mobile number" name="PHONE" id="mce-PHONE">
                         </div>
                     </div>
                     <div class="beta__form-item checkbox">
-                        <input type="checkbox">
-                        <label>Subscribe to WhatApp updates? <span>No spam</span></label>
+                        <input type="checkbox" name="group[52943][1]" id="mce-group[52943]-52943-0">
+                        <label for="mce-group[52943]-52943-0">Subscribe to WhatApp updates? <span>No spam</span></label>
                     </div>
                     <div class="beta__form-item checkbox qa__selector">
-                        <input type="checkbox">
-                        <label>Would you be willing to chat with us for 30 mins as part of our user research program?</label>
+                        <input type="checkbox" name="group[52947][2]" id="mce-group[52947]-52947-0" >
+                        <label for="mce-group[52947]-52947-0">Would you be willing to chat with us for 30 mins as part of our user research program?</label>
                     </div>
                     <button type="submit" id="submit" class="form-save" disabled name="subscribe" id="mc-embedded-subscribe">Submit</button>
                 </form>
@@ -517,110 +518,8 @@
 <script src="./src/js/jquery.js"></script>
 <script src="./src/js/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<script>
-    $('.open__beta-access').click(function(){
-        $('.modal__beta-access').addClass('open')
-    })
-    $('.close__beta-access').click(function(){
-        $('.modal__beta-access').removeClass('open')
-    })
-
-    // Form Validation
-    // Wait for the DOM to be ready
-    $(function() {
-    $("form[name='mc-embedded-subscribe-form']").validate({
-        rules: {
-        email: {
-            required: true,
-            email: true
-        },
-        mobile: {
-            required: true,
-            minlength: 10
-        },
-        },
-        messages: {
-        name: "Please enter your Name",
-        mobile: {
-            required: "Please enter your mobile number",
-            minlength: "Enter a 10 digit mobile number"
-        },
-        email: "Please enter a valid email address"
-        },
-        // Make sure the form is submitted to the destination defined
-        submitHandler: function(form) {
-            $(this).find('.submit').prop('disabled',true);
-            // form.submit();
-            $('.form-main__box').hide();
-            $('.form-thanks__box').css('display', 'flex');
-        }
-    });
-    });
-    $('#mc-embedded-subscribe-form').on('blur keyup change', 'input', function(event) {
-        if ($("#mc-embedded-subscribe-form").valid()) {
-            $('#submit').prop('disabled', false);  
-        } else {
-            $('#submit').prop('disabled', 'disabled');
-        }
-    });
-
-    // $('#beta__form').on('blur keyup change', 'input', function(event) {
-    //     validateForm('#beta__form');
-    // });
-    // function validateForm(id) {
-    //     var valid = $(id).validate().checkForm();
-    //     if (valid) {
-    //         $('.form-save').prop('disabled', false);
-    //             $('.form-save').removeClass('isDisabled');
-    //         } else {
-    //         $('.form-save').prop('disabled', 'disabled');
-    //         $('.form-save').addClass('isDisabled');
-    //     }
-    // }
-
-    // // Run once, so subsequent input will be show error message upon validation
-    // validateForm('#beta__form');
-
-    const swiper = new Swiper('.swiper', {
-        speed:5000,
-        slidesPerView: 3.5,
-        spaceBetween: 0,
-        autoplay: {
-            delay: 1,
-            disableOnInteraction: false,
-        }
-    });
-    const swiperTopBottom = new Swiper('.swiper-top-bottom', {
-        speed:5000,
-        slidesPerView: 3.5,
-        reverseDirection: true,
-        spaceBetween: 0,
-        autoplay: {
-            delay: 1,
-            disableOnInteraction: false,
-        }
-    });
-    const swiperBottomFirst = new Swiper('.swiper-bottom-first', {
-        speed:5000,
-        slidesPerView: 3.5,
-        spaceBetween: 0,
-        autoplay: {
-            delay: 1,
-            disableOnInteraction: false,
-        }
-    });
-    const swiperBottomSecond = new Swiper('.swiper-bottom-second', {
-        speed:5000,
-        slidesPerView: 3.5,
-        reverseDirection: true,
-        spaceBetween: 0,
-        autoplay: {
-            delay: 1,
-            disableOnInteraction: false,
-        }
-    });
-</script>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script src="./src/js/custom.js"></script>
 </body>
 
 </html>
