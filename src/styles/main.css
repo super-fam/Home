@@ -86,7 +86,7 @@ input[type=number] {
     display: none;
 }
 .sf__home-content {
-    margin: 40px 0;
+    margin: 40px;
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 50%,rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%);
 }
 .modal__beta-access {
@@ -327,12 +327,11 @@ input[type=number] {
     padding-right: 2px;
 }
 .sf__home-mobile .sf__mail-btn {
-    position: fixed;
-    bottom: 40px;
-    left: 0;
-    right: 0;
     font-size: 14px;
+    text-align: center;
+    margin-top: 50px;
     color: var(--black);
+    display: block;
 }
 .open {
     display: flex !important;
@@ -371,5 +370,14 @@ body {
 }
 .form-thanks__box p {
     margin: 0 0 23px 0;
+}
+@media only screen and (max-width: 400px) {
+    .beta__form-container h2 {
+        margin-right: 20px;
+        line-height: 24px;
+    }
+    .main__logo {
+        margin: 20px auto;
+    }
 }
 }
