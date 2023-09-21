@@ -47,6 +47,11 @@ $(function () {
         }
     });
 });
+
+
+
+
+
 $('#mc-embedded-subscribe-form').on('blur keyup change', 'input', function (event) {
     if ($("#mc-embedded-subscribe-form").valid()) {
         $('#submit').prop('disabled', false);

@@ -271,7 +271,67 @@ input[type=number] {
     border: 1px solid var(--blue);
     border-radius: 6px;
 }
-
+#mce-responses p {
+    margin: 10px 0;
+    color: var(--red);
+}
+#mce-responses p::before {
+    content: '';
+    background: url('../error.svg');
+    width: 30px;
+    background-size: 100% 100%;
+    height: 30px;
+    display: block;
+    margin-right: 10px;
+    float: left;
+}
+.form-error__box {
+    text-align: center;
+    min-height: 516px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    display: none;
+}
+.form-error__box .close-icon__errorbox {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+}
+.form-error__box img {
+    margin: 0 auto 20px auto;
+}
+.form-error__box h3 {
+    font-size: 30px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    color: var(--black);
+}
+.form-error__box p {
+    font-size: 16px;
+    color: var(--midgrey);
+    line-height: 20px;
+    margin: 0 100px 23px 100px;
+}
+.form-error__box p a {
+    display: inline-block;
+}
+.form-error__box .close__beta-access {
+    float: none;
+    position: relative;
+    right: auto;
+    top: auto;
+}
+.back__btn {
+    color: var(--red);
+    font-size: 12px;
+    padding: 6px 18px;
+    border: 1px solid var(--red);
+    border-radius: 6px;
+}
 
 /* Mobile */
 .main__logo {
@@ -371,6 +431,10 @@ body {
 .form-thanks__box p {
     margin: 0 0 23px 0;
 }
+.form-error__box p {
+    margin: 0 0 23px 0;
+}
+
 @media only screen and (max-width: 450px) {
     .beta__form-container h2 {
         margin-right: 20px;
