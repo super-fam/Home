@@ -379,5 +379,12 @@ body {
     .main__logo {
         margin: 20px auto;
     }
+    .modal__beta-access .beta__form-container {
+        top: 0;
+    }
+    .close__beta-access {
+        top: 20px;
+        right: 20px;
+    }
 }
 }
