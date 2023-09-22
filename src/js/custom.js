@@ -64,9 +64,10 @@ const swiper = new Swiper('.swiper', {
     speed: 5000,
     slidesPerView: 3.5,
     spaceBetween: 0,
+    loop: true,
     autoplay: {
         delay: 1,
-        disableOnInteraction: true,
+        disableOnInteraction: false
     }
 });
 const swiperTopBottom = new Swiper('.swiper-top-bottom', {
@@ -74,18 +75,20 @@ const swiperTopBottom = new Swiper('.swiper-top-bottom', {
     slidesPerView: 3.5,
     reverseDirection: true,
     spaceBetween: 0,
+    loop: true,
     autoplay: {
         delay: 1,
-        disableOnInteraction: true,
+        disableOnInteraction: false
     }
 });
 const swiperBottomFirst = new Swiper('.swiper-bottom-first', {
     speed: 5000,
     slidesPerView: 3.5,
     spaceBetween: 0,
+    loop: true,
     autoplay: {
         delay: 1,
-        disableOnInteraction: true,
+        disableOnInteraction: false
     }
 });
 const swiperBottomSecond = new Swiper('.swiper-bottom-second', {
@@ -93,8 +96,9 @@ const swiperBottomSecond = new Swiper('.swiper-bottom-second', {
     slidesPerView: 3.5,
     reverseDirection: true,
     spaceBetween: 0,
+    loop: true,
     autoplay: {
         delay: 1,
-        disableOnInteraction: true,
+        disableOnInteraction: false
     }
 });
