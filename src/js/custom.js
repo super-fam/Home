@@ -50,15 +50,33 @@ $(function () {
 
 
 
-
-
-$('#mc-embedded-subscribe-form').on('blur keyup change', 'input', function (event) {
+$('#mce-EMAIL' && '#mce-PHONE').on('blur', function() {
     if ($("#mc-embedded-subscribe-form").valid()) {
         $('#submit').prop('disabled', false);
     } else {
         $('#submit').prop('disabled', 'disabled');
     }
 });
+
+// $('#mc-embedded-subscribe-form').on('blur keyup change', 'input', function (event) {
+//     if ($("#mc-embedded-subscribe-form").valid()) {
+//         $('#submit').prop('disabled', false);
+//     } else {
+//         $('#submit').prop('disabled', 'disabled');
+//     }
+// });
+// $("#mce-EMAIL").on("blur", function(){
+//     if($("#mc-embedded-subscribe-form").valid())
+//     {
+//         $("#submit").removeAttr("disabled");
+//     }
+//  });
+//  $("#mce-PHONE").on("blur", function(){
+//      if($("#mc-embedded-subscribe-form").valid())
+//      {
+//          $("#submit").removeAttr("disabled");
+//      }
+//   }); 
 
 const swiper = new Swiper('.swiper', {
     speed: 5000,
