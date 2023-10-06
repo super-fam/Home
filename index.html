@@ -448,41 +448,36 @@
             <div class="beta__form-inputs w-50">
                 <h2><span>Join</span> our beta program</h2>
                 <p>We will reach out to you for early access. Completely free. All we ask for is your feedback</p>
-                <form name="mc-embedded-subscribe-form" action="https://app.us9.list-manage.com/subscribe/post?u=45688f89dd542e86768639360&amp;id=e309800993&amp;f_id=005032e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                <form action="https://api.india-insurance-gpt.in/api/insurance/user/user_beta_signup/" method="post" name="betaForm" id="betaForm" class="validate"
                 target="_blank">
                     <div class="beta__form-item textbox">
-                        <label for="mce-NAME">Name</label>
-                        <input type="text" placeholder="Tony Stark" id="mce-NAME" name="NAME">
+                        <label for="username">Name</label>
+                        <input type="text" placeholder="Tony Stark" id="username" name="username">
                     </div>
                     <div class="beta__form-item textbox">
-                        <label for="mce-EMAIL">Email address</label>
-                        <input type="email" placeholder="email@gmail.com" name="EMAIL" id="mce-EMAIL">
+                        <label for="email">Email address</label>
+                        <input type="email" placeholder="email@gmail.com" name="email" id="email">
                     </div>
                     <div class="beta__form-item textbox">
-                        <label for="mce-PHONE">Mobile number</label>
+                        <label for="phone_number">Mobile number</label>
                         <div class="textbox__countrycode">
                             <img src="./src/country__code.svg" alt="">
-                            <input type="number" placeholder="Mobile number" name="PHONE" id="mce-PHONE">
+                            <input type="number" placeholder="Mobile number" name="phone_number" id="phone_number">
                         </div>
                     </div>
                     <div class="beta__form-item checkbox">
-                        <input type="checkbox" name="group[52943][1]" id="mce-group[52943]-52943-0">
-                        <label for="mce-group[52943]-52943-0">Subscribe to WhatsApp updates? <span>No spam</span></label>
+                        <input type="checkbox" name="is_subscribe_whatsapp" id="is_subscribe_whatsapp" value="false">
+                        <label for="is_subscribe_whatsapp">Subscribe to WhatsApp updates? <span>No spam</span></label>
                     </div>
                     <div class="beta__form-item checkbox qa__selector">
-                        <input type="checkbox" name="group[52947][2]" id="mce-group[52947]-52947-0" >
-                        <label for="mce-group[52947]-52947-0">Would you be willing to chat with us for 30 mins as part of our user research program?</label>
+                        <input type="checkbox" name="is_chat_ready" id="is_chat_ready" value="false">
+                        <label for="is_chat_ready">Would you be willing to chat with us for 30 mins as part of our user research program?</label>
                     </div>
-                    <div id="mce-responses" class="clear foot">
-                      <p class="response" id="mce-error-response" style="display: none;"></p>
-                      <p class="response" id="mce-success-response" style="display: none;"></p>
+                    <div id="error-responses" class="clear foot" style="display: none;">
+                      <img src="./src/error.svg" alt="">
+                      <p class="response" id="error-response"></p>
                     </div>
-                    <div class="form__error">
-                      <div id="mce-responses" class="clear foot">
-                        <p class="response" id="mce-error-response" style="display: none;"></p>
-                      </div>
-                    </div>
-                    <button type="submit" id="submit" class="form-save" disabled name="subscribe" id="mc-embedded-subscribe">Submit</button>
+                    <button type="submit" id="submit" class="form-save" disabled name="subscribe"><span class="btn__text">Submit</span><span class="spinner"></span></button>
                 </form>
             </div>
             <div class="beta__form-banner w-50">
@@ -493,27 +488,24 @@
             <img src="./src/thanks.svg" alt="">
             <h3>Thank you!</h3>
             <p>You have successfully registered for the SuperFam Beta program. We will reach out to you once we have published our app.</p>
-            <a href="#" class="close__beta-access alright__btn">
+            <a href="#" class="alright__btn">
                 Alright! I'll be waiting...
             </a>
         </div>
-        <!-- <div class="form-error__box">
+        <div class="form-error__box">
             <img src="./src/error.svg" alt="">
-            <h3>Error!</h3>
-            <div id="mce-responses" class="clear foot">
-              <p class="response" id="mce-error-response" style="display: none;"></p>
-            </div>
+            <h3>Error</h3>
+            <p>You have successfully registered for the SuperFam Beta program. We will reach out to you once we have published our app.</p>
             <a href="#" class="back__btn">
-                Go back...
+              Go back
             </a>
-        </div> -->
+        </div>
     </div>
 </div>
 <!-- Modal Beta Form End -->
 <script src="./src/js/jquery.js"></script>
 <script src="./src/js/jquery.validate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
 <script src="./src/js/custom.js"></script>
 </body>
 

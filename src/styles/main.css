@@ -189,6 +189,7 @@ input[type=number] {
     background: var(--blue);
     height: 48px;
     border-radius: 12px;
+    position: relative;
     color: var(--white);
 }
 .beta__form-container button:disabled {
@@ -272,35 +273,49 @@ input[type=number] {
     border: 1px solid var(--blue);
     border-radius: 6px;
 }
-#mce-responses #mce-error-response {
-    margin: 10px 0;
+.loading-spinner{
+    position:relative;
+    display:block;
+}
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+.spinner {
+    min-height:36px;
+    display: none;
+}
+.spinner-on .btn__text {
+    display: none;
+}
+.spinner-on .spinner {
+    display: block;
+}
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #333;
+    animation: spinner 1s linear infinite;
+}
+#error-responses {
+    margin: 10px 0 0 0;
+    align-items: center;
+}
+#error-responses img {
+    width: 30px;
+    margin-right: 10px;
+}
+#error-responses #error-response {
+    margin: 0;
     color: var(--red);
-    margin: 10px 0 0 0;
-}
-#mce-responses #mce-error-response::before {
-    content: '';
-    background: url('../error.svg');
-    width: 30px;
-    background-size: 100% 100%;
-    height: 30px;
-    display: block;
-    margin-right: 10px;
-    float: left;
-}
-#mce-responses #mce-success-response {
-    margin: 10px 0;
-    color: var(--blue);
-    margin: 10px 0 0 0;
-}
-#mce-responses #mce-success-response::before {
-    content: '';
-    background: url('../thanks.svg');
-    width: 30px;
-    background-size: 100% 100%;
-    height: 30px;
-    display: block;
-    margin-right: 10px;
-    float: left;
 }
 .form-error__box {
     text-align: center;
@@ -311,6 +326,7 @@ input[type=number] {
     flex-direction: column;
     position: relative;
     display: none;
+    width: 100%;
 }
 .form-error__box .close-icon__errorbox {
     position: absolute;
@@ -320,6 +336,7 @@ input[type=number] {
 }
 .form-error__box img {
     margin: 0 auto 20px auto;
+    width: 118px;
 }
 .form-error__box h3 {
     font-size: 30px;
@@ -343,10 +360,10 @@ input[type=number] {
     top: auto;
 }
 .back__btn {
-    color: var(--red);
+    color: var(--black);
     font-size: 12px;
     padding: 6px 18px;
-    border: 1px solid var(--red);
+    border: 1px solid var(--black);
     border-radius: 6px;
 }
 

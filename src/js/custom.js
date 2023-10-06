@@ -1,4 +1,3 @@
-(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[1] = 'NAME'; ftypes[1] = 'text'; fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; }(jQuery)); var $mcj = jQuery.noConflict(true);
 
 // Subscribe Popup
 $('.open__beta-access').click(function () {
@@ -8,76 +7,85 @@ $('.close__beta-access').click(function () {
     $('.modal__beta-access').removeClass('open')
     $('.form-main__box').css('display', 'flex');
     $('.form-thanks__box').hide();
-    $('#mce-responses').hide();
 })
-
+$('.alright__btn').click(function () {
+    location.reload();
+})
+$('.back__btn').click(function(){
+    $('.form-main__box').css('display', 'flex');
+    $('.form-error__box').hide();
+})
 // Form Validation
 // Wait for the DOM to be ready
 $(function () {
-    $("form[name='mc-embedded-subscribe-form']").validate({
+    $("form[name='betaForm']").validate({
         rules: {
-            EMAIL: {
+            email: {
                 required: true,
                 email: true
             },
-            PHONE: {
+            phone_number: {
                 required: true,
                 minlength: 10
             },
         },
         messages: {
-            NAME: "Please enter your Name",
-            PHONE: {
+            username: "Please enter your Name",
+            phone_number: {
                 required: "Please enter your mobile number",
                 minlength: "Enter a 10 digit mobile number"
             },
-            EMAIL: "Please enter a valid email address"
+            email: "Please enter a valid email address"
         },
         // Make sure the form is submitted to the destination defined
         submitHandler: function (form) {
+            $('.form-save').addClass('spinner-on');
+            // New form submission
+            var frm = $('#betaForm');
+                $.ajax({
+                    type: frm.attr('method'),
+                    url: frm.attr('action'),
+                    // data: frm.serialize(),
+                    data: JSON.stringify({
+                        "name": username.value,
+                        "email": email.value,
+                        "phone_number": Number(phone_number.value),
+                        "is_chat_ready": is_chat_ready.value,
+                        "is_subscribe_whatsapp": is_subscribe_whatsapp.value
+                    }),
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (data) {
+                        $('.form-main__box').hide();
+                        $('.form-thanks__box').css('display', 'flex');
+                        document.getElementById("betaForm").reset();
+                        $('#error-responses').css('display', 'none');
+                        $(this).find('.submit').prop('disabled', true);
+                        $('.form-save').removeClass('spinner-on');
+                    },
+                    error: function (data) {
+                        $('.form-main__box').hide();
+                        $('.form-error__box').css('display', 'flex');
+                        $('.form-error__box p').html(data.responseJSON.message);
+                        $('.form-save').removeClass('spinner-on');
+                    },
+                });
+            // New form submission end
             $(this).find('.submit').prop('disabled', true);
-            var mc1Submitted = false;
-            jQuery('#mc-embedded-subscribe-form').on('submit reset', function (event) {
-                if ("submit" === event.type) {
-                    mc1Submitted = true;
-                } else if ("reset" === event.type && mc1Submitted) {
-                    $('.form-main__box').hide();
-                    $('.form-thanks__box').css('display', 'flex');
-                }
-            });
         }
     });
 });
 
 
 
-$('#mce-EMAIL' && '#mce-PHONE').on('blur', function() {
-    if ($("#mc-embedded-subscribe-form").valid()) {
+$('#email' && '#phone_number').on('blur', function() {
+    if ($("#betaForm").valid()) {
         $('#submit').prop('disabled', false);
     } else {
         $('#submit').prop('disabled', 'disabled');
     }
 });
 
-// $('#mc-embedded-subscribe-form').on('blur keyup change', 'input', function (event) {
-//     if ($("#mc-embedded-subscribe-form").valid()) {
-//         $('#submit').prop('disabled', false);
-//     } else {
-//         $('#submit').prop('disabled', 'disabled');
-//     }
-// });
-// $("#mce-EMAIL").on("blur", function(){
-//     if($("#mc-embedded-subscribe-form").valid())
-//     {
-//         $("#submit").removeAttr("disabled");
-//     }
-//  });
-//  $("#mce-PHONE").on("blur", function(){
-//      if($("#mc-embedded-subscribe-form").valid())
-//      {
-//          $("#submit").removeAttr("disabled");
-//      }
-//   }); 
 
 const swiper = new Swiper('.swiper', {
     speed: 5000,
@@ -117,3 +125,15 @@ const swiperBottomSecond = new Swiper('.swiper-bottom-second', {
         disableOnInteraction: false
     }
 });
+
+
+$('#is_subscribe_whatsapp').val($(this).is(':checked')); 
+$('#is_subscribe_whatsapp').click(function() { 
+    $('#is_subscribe_whatsapp').val($(this).is(':checked')); 
+}); 
+
+
+$('#is_chat_ready').val($(this).is(':checked')); 
+$('#is_chat_ready').click(function() { 
+    $('#is_chat_ready').val($(this).is(':checked')); 
+}); 
